@@ -1,13 +1,16 @@
 {
   "name": "vnsync-win32-lib",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "Win32 API bindings library for manipulating windows and mouse events.",
-  "main": "cjs.js",
-  "module": "esm.js",
+  "main": "index.js",
   "scripts": {
     "install": "node-gyp rebuild"
   },
   "author": "David Lysenko",
   "license": "MIT",
-  "gypfile": true
+  "gypfile": true,
+  "exports": {
+    "require": "./index.js",
+    "import": "./esm/wrapper.js"
+  }
 }
