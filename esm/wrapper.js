@@ -1,4 +1,4 @@
-import vnsyncWin32Lib from '../index.js';
+import vnsyncWin32Lib from "../index.js";
 
 export const getOpenedWindows = vnsyncWin32Lib.getOpenedWindows;
 export const showWindow = vnsyncWin32Lib.showWindow;
