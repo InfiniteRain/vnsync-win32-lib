@@ -1,6 +1,6 @@
 {
   "name": "vnsync-win32-lib",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Win32 API bindings library for manipulating windows and mouse events.",
   "main": "index.js",
   "scripts": {
