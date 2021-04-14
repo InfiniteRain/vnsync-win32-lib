@@ -102,7 +102,7 @@ void showWindow(const FunctionCallbackInfo<Value>& args) {
     }
 
     ShowWindow(hwnd, 1);
-    SetActiveWindow(hwnd);
+    SetForegroundWindow(hwnd);
 }
 
 void getWindowRectangle(const FunctionCallbackInfo<Value>& args) {
