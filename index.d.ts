@@ -7,7 +7,7 @@ export interface Rectangle {
   left: number;
   top: number;
   right: number;
-  buttom: number;
+  bottom: number;
 }
 
 export interface Window {
