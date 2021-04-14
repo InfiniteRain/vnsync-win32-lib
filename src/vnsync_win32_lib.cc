@@ -14,6 +14,7 @@ using v8::String;
 using v8::Number;
 using v8::Local;
 using v8::Exception;
+using v8::Boolean;
 
 Local<String> generateLocalString(Isolate* isolate, string str) {
     return String::NewFromUtf8(isolate, str.c_str()).ToLocalChecked();
@@ -66,6 +67,22 @@ void getOpenedWindows(const FunctionCallbackInfo<Value>& args) {
     }
 
     args.GetReturnValue().Set(openedWindows);
+}
+
+void windowExists(const FunctionCallbackInfo<Value>& args) {
+    auto isolate = args.GetIsolate();
+
+    if (args.Length() < 1 || !args[0]->IsNumber()) {
+        throwException(isolate, "Argument 1 is expected to be a number.");
+        return;
+    }
+
+    auto context = isolate->GetCurrentContext();
+    HWND hwnd = (HWND)args[0]->IntegerValue(context).FromMaybe(0);
+
+    auto exists = IsWindow(hwnd);
+
+    args.GetReturnValue().Set(Boolean::New(isolate, exists));
 }
 
 void showWindow(const FunctionCallbackInfo<Value>& args) {
@@ -175,6 +192,7 @@ void mouseClick(const FunctionCallbackInfo<Value>& args) {
 
 void initialize(const Local<Object> exports) {
     NODE_SET_METHOD(exports, "getOpenedWindows", getOpenedWindows);
+    NODE_SET_METHOD(exports, "windowExists", windowExists);
     NODE_SET_METHOD(exports, "showWindow", showWindow);
     NODE_SET_METHOD(exports, "getWindowRectangle", getWindowRectangle);
     NODE_SET_METHOD(exports, "getCursorPosition", getCursorPosition);
