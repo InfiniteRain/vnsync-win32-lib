@@ -188,6 +188,7 @@ void mouseClick(const FunctionCallbackInfo<Value>& args) {
     GetCursorPos(&cpoint);
 
     mouse_event(MOUSEEVENTF_LEFTDOWN, cpoint.x, cpoint.y, 0, 0);
+    Sleep(100);
     mouse_event(MOUSEEVENTF_LEFTUP, cpoint.x, cpoint.y, 0, 0);
 }
 
