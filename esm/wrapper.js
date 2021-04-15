@@ -6,4 +6,5 @@ export const windowExists = vnsyncWin32Lib.windowExists;
 export const getWindowRectangle = vnsyncWin32Lib.getWindowRectangle;
 export const getCursorPosition = vnsyncWin32Lib.getCursorPosition;
 export const setCursorPosition = vnsyncWin32Lib.setCursorPosition;
-export const mouseClick = vnsyncWin32Lib.mouseClick;
+export const leftClickDown = vnsyncWin32Lib.leftClickDown;
+export const leftClickUp = vnsyncWin32Lib.leftClickUp;

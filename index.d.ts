@@ -21,4 +21,5 @@ export function showWindow(handle: number): void;
 export function getWindowRectangle(handle: number): Rectangle;
 export function getCursorPosition(): Point;
 export function setCursorPosition(x: number, y: number): void;
-export function mouseClick(): void;
+export function leftClickDown(): void;
+export function leftClickUp(): void;

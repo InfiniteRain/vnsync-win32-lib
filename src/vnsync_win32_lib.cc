@@ -183,12 +183,17 @@ void setCursorPosition(const FunctionCallbackInfo<Value>& args) {
     SetCursorPos(x, y);
 }
 
-void mouseClick(const FunctionCallbackInfo<Value>& args) {
+void leftClickDown(const FunctionCallbackInfo<Value>& args) {
     POINT cpoint;
     GetCursorPos(&cpoint);
 
     mouse_event(MOUSEEVENTF_LEFTDOWN, cpoint.x, cpoint.y, 0, 0);
-    Sleep(100);
+}
+
+void leftClickUp(const FunctionCallbackInfo<Value>& args) {
+    POINT cpoint;
+    GetCursorPos(&cpoint);
+
     mouse_event(MOUSEEVENTF_LEFTUP, cpoint.x, cpoint.y, 0, 0);
 }
 
@@ -199,7 +204,8 @@ void initialize(const Local<Object> exports) {
     NODE_SET_METHOD(exports, "getWindowRectangle", getWindowRectangle);
     NODE_SET_METHOD(exports, "getCursorPosition", getCursorPosition);
     NODE_SET_METHOD(exports, "setCursorPosition", setCursorPosition);
-    NODE_SET_METHOD(exports, "mouseClick", mouseClick);
+    NODE_SET_METHOD(exports, "leftClickDown", leftClickDown);
+    NODE_SET_METHOD(exports, "leftClickUp", leftClickUp);
 }
 
 NODE_MODULE(addon, initialize)
