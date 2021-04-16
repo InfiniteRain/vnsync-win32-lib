@@ -8,3 +8,5 @@ export const getCursorPosition = vnsyncWin32Lib.getCursorPosition;
 export const setCursorPosition = vnsyncWin32Lib.setCursorPosition;
 export const leftClickDown = vnsyncWin32Lib.leftClickDown;
 export const leftClickUp = vnsyncWin32Lib.leftClickUp;
+export const enterKeyDown = vnsyncWin32Lib.enterKeyDown;
+export const enterKeykUp = vnsyncWin32Lib.enterKeykUp;
