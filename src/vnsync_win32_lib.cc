@@ -197,6 +197,14 @@ void leftClickUp(const FunctionCallbackInfo<Value>& args) {
     mouse_event(MOUSEEVENTF_LEFTUP, cpoint.x, cpoint.y, 0, 0);
 }
 
+void enterKeyDown(const FunctionCallbackInfo<Value>& args) {
+    keybd_event(VK_RETURN, 0x9C, 0, 0);
+}
+
+void enterKeyUp(const FunctionCallbackInfo<Value>& args) {
+    keybd_event(VK_RETURN, 0x9C, KEYEVENTF_KEYUP, 0);
+}
+
 void initialize(const Local<Object> exports) {
     NODE_SET_METHOD(exports, "getOpenedWindows", getOpenedWindows);
     NODE_SET_METHOD(exports, "windowExists", windowExists);
@@ -206,6 +214,8 @@ void initialize(const Local<Object> exports) {
     NODE_SET_METHOD(exports, "setCursorPosition", setCursorPosition);
     NODE_SET_METHOD(exports, "leftClickDown", leftClickDown);
     NODE_SET_METHOD(exports, "leftClickUp", leftClickUp);
+    NODE_SET_METHOD(exports, "enterKeyDown", enterKeyDown);
+    NODE_SET_METHOD(exports, "enterKeyUp", enterKeyUp);
 }
 
 NODE_MODULE(addon, initialize)
