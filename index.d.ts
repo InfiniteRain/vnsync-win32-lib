@@ -24,4 +24,4 @@ export function setCursorPosition(x: number, y: number): void;
 export function leftClickDown(): void;
 export function leftClickUp(): void;
 export function enterKeyDown(): void;
-export function enterKeykUp(): void;
+export function enterKeyUp(): void;
