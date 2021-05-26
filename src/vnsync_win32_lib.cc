@@ -53,7 +53,7 @@ void getOpenedWindows(const FunctionCallbackInfo<Value>& args) {
 
         auto hwndKeyString = generateLocalString(isolate, "handle");
         auto titleKeyString = generateLocalString(isolate, "title");
-        auto hwndValueNumber = Number::New(isolate, (int64_t)hwnd);
+        auto hwndValueNumber = Number::New(isolate, (int64_t) hwnd);
         auto titleValueString = String::NewFromTwoByte(isolate, (uint16_t *) title).ToLocalChecked();
 
         delete[] title;
